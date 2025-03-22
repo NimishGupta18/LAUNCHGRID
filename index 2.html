@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAUNCHGRID – Where Startups Ignite and Soar!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --light-gray: #F7F9F9;
+            --gray: #6C757D;
+            --white: #ffffff;
+            --accent: #FFD166;
+            --dark: #2F3E46;
+            --logo-red: #FF6B6B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            color: #6C757D;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .logo span {
+            color:#6C757D;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 5px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FF6B6B' fill-opacity='0.1' d='M38.5,-57.1C52.9,-46.3,69.8,-39.4,78.3,-26.5C86.8,-13.6,87,5.3,81.8,22.1C76.6,38.9,66.1,53.5,51.9,61.7C37.7,69.9,18.9,71.7,0.8,70.6C-17.3,69.5,-34.5,65.5,-49.5,56.5C-64.5,47.5,-77.3,33.5,-84.3,16.2C-91.3,-1.1,-92.5,-21.6,-83.7,-36.5C-74.9,-51.4,-56.2,-60.7,-39.1,-70.4C-22,-80.1,-6.6,-90.1,3.5,-85.6C13.5,-81.1,24.1,-68,38.5,-57.1Z' transform='translate(100 100)' /%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%234ECDC4' fill-opacity='0.1' d='M41.3,-71.9C53.4,-63.5,63.1,-51.6,70.5,-38.1C77.9,-24.6,83,-9.6,81.1,4.4C79.2,18.4,70.3,31.5,60.4,43.4C50.5,55.3,39.6,66.1,26.3,72.5C13,78.9,-2.7,80.9,-18.3,78.3C-33.9,75.7,-49.3,68.4,-61.4,57.2C-73.5,46,-82.2,30.7,-84.9,14.3C-87.6,-2.1,-84.2,-19.6,-75.8,-33.9C-67.4,-48.2,-54,-59.4,-39.6,-67C-25.2,-74.6,-9.8,-78.5,3.1,-83.7C16,-88.9,29.1,-80.4,41.3,-71.9Z' transform='translate(100 100)' /%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFD166' fill-opacity='0.1' d='M47.3,-75.2C62.2,-68.7,76.2,-58.5,83.4,-44.6C90.6,-30.7,91,-13.1,88.4,3.4C85.8,20,80.3,35.4,71.5,49.6C62.6,63.8,50.4,76.8,35.9,81.7C21.3,86.6,4.4,83.4,-10.5,78.5C-25.3,73.6,-38.1,67.1,-48.2,57.7C-58.3,48.3,-65.7,36.1,-71.2,22.7C-76.7,9.2,-80.4,-5.4,-76.9,-17.9C-73.5,-30.4,-62.9,-40.9,-50.8,-48.3C-38.6,-55.7,-24.9,-60.1,-9.9,-65.3C5.1,-70.5,32.4,-81.7,47.3,-75.2Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+            background-position: -50px -50px, 400px 200px, 200px 300px;
+            background-repeat: no-repeat;
+            background-size: 300px, 400px, 350px;
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .hero-content {
+            width: 60%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,107,107,0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #6C757D;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url('/api/placeholder/800/600');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,107,107,0.3) 0%, rgba(78,205,196,0.3) 100%);
+            z-index: 1;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFD166' fill-opacity='0.1' d='M42.8,-76.2C55.9,-69.5,67.3,-59.2,76.3,-46.3C85.2,-33.4,91.6,-16.7,91.8,0.1C91.9,16.9,85.8,33.8,76.1,47.8C66.4,61.7,53.2,72.6,38.5,79.7C23.8,86.8,7.6,90.1,-8.1,88.4C-23.9,86.7,-39.2,79.9,-50.6,69.5C-62,59,-69.5,44.8,-74.9,30.1C-80.2,15.4,-83.5,0.1,-81.9,-14.8C-80.3,-29.8,-73.9,-44.4,-63.1,-51.7C-52.3,-59,-37.1,-58.9,-24.5,-65.7C-11.9,-72.5,-1,-86.1,9.2,-85.7C19.4,-85.3,29.7,-82.9,42.8,-76.2Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+            background-size: contain;
+            top: -150px;
+            left: -150px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .about::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%234ECDC4' fill-opacity='0.1' d='M45.3,-78.2C58.9,-71.4,70.3,-60.4,79.3,-47.1C88.3,-33.8,94.8,-18.2,95.6,-2.1C96.4,14,91.3,30.4,83.2,45.5C75.1,60.5,64,74.2,49.8,81.4C35.6,88.5,18.3,89.2,1.2,87.4C-15.8,85.6,-32.7,81.3,-46.6,72.8C-60.5,64.2,-71.5,51.3,-79.6,36.6C-87.7,21.9,-92.9,5.3,-90.5,-9.9C-88.1,-25.1,-78.2,-38.9,-66.8,-49.9C-55.4,-60.9,-42.7,-69.1,-29.4,-75.9C-16.1,-82.7,-2.3,-88.2,11.2,-87.3C24.7,-86.5,31.8,-85,45.3,-78.2Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+            background-size: contain;
+            bottom: -200px;
+            right: -200px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            width: 48%;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: var(--dark);
+        }
+
+        .about-image {
+            width: 48%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transform: rotate(3deg);
+            transition: all 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 30px;
+            height: 30px;
+            border-top: 4px solid var(--accent);
+            border-left: 4px solid var(--accent);
+            z-index: 1;
+            border-radius: 5px 0 0 0;
+        }
+
+        .about-image::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            border-bottom: 4px solid var(--accent);
+            border-right: 4px solid var(--accent);
+            z-index: 1;
+            border-radius: 0 0 5px 0;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #F7F9F9 0%, #E9ECEF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23FFD166' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px dashed transparent;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 2px dashed var(--accent);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .feature-icon::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, rgba(255,107,107,0.1) 0%, transparent 70%);
+            top: -10px;
+            left: -10px;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFFFFF' fill-opacity='0.05' d='M44.5,-76.3C59.2,-69.7,73.8,-60.3,81.8,-46.8C89.8,-33.3,91.2,-16.7,89.3,-1.1C87.4,14.5,82.2,29,73.5,41.1C64.8,53.2,52.7,62.9,39.1,68.8C25.5,74.7,10.7,76.9,-3.8,76.5C-18.3,76.1,-36.7,73.2,-51.8,65.3C-67,57.4,-79,44.5,-86,29.2C-93,13.9,-95.1,-3.8,-90.6,-19.8C-86.1,-35.7,-75.1,-49.9,-61.1,-57.3C-47.1,-64.7,-30.1,-65.3,-15,-66.1C0.1,-66.9,13.3,-67.8,26.2,-69.3C39.1,-70.7,51.7,-72.7,44.5,-76.3Z' transform='translate(100 100)' /%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFFFFF' fill-opacity='0.05' d='M38.1,-65.5C46.8,-58.9,49.7,-43.4,56.8,-30.1C63.9,-16.8,75.3,-5.8,77.5,6.9C79.7,19.6,72.8,34.1,62.7,45.3C52.6,56.5,39.3,64.5,25.3,69.4C11.2,74.3,-3.5,76.2,-16.5,72.5C-29.5,68.8,-40.7,59.5,-49.6,48.5C-58.5,37.5,-65,24.7,-70.6,10.4C-76.2,-3.9,-80.8,-19.8,-77.2,-34.2C-73.7,-48.7,-62,-61.6,-47.5,-67.1C-33.1,-72.5,-16.5,-70.4,-0.8,-69.2C14.9,-68,29.4,-72.1,38.1,-65.5Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+            background-position: -50px -50px, 400px 200px;
+            background-repeat: no-repeat;
+            background-size: 300px, 400px;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        .cta h2::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .btn {
+            background-color: var(--white);
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            position: relative;
+            z-index: 1;
+            border: 2px solid var(--white);
+        }
+
+        .cta .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* Waitlist Form */
+        .waitlist-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            display: flex;
+            position: relative;
+            z-index: 1;
+        }
+
+        .waitlist-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .waitlist-form button {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 200;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .waitlist-form button:hover {
+            background-color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #6C757D;
+            color: var(--white);
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column {
+            width: 24%;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            font-weight: 200;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-column a::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+            padding-left: 20px;
+        }
+
+        .footer-column a:hover::before {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            padding-left: 0;
+        }
+
+        .social-icons a::before {
+            content: none;
+        }
+
+        .social-icons a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            padding-left: 0;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #000000;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .hero-content {
+                width: 100%;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                width: 100%;
+            }
+
+            .about-image {
+                margin-top: 40px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-wrap: wrap;
+            }
+
+            .footer-column {
+                width: 48%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background-color: var(--white);
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links-active {
+                transform: translateX(0%);
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 15px 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .waitlist-form {
+                flex-direction: column;
+            }
+
+            .waitlist-form input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .waitlist-form button {
+                border-radius: 5px;
+                padding: 15px;
+            }
+
+            .footer-column {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .feature-card {
+                padding: 30px;
+            }
+        }
+        /* Modal Container */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1002; /* Above all other content */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  animation: fadeIn 0.5s ease;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: var(--white);
+  margin: 15% auto;
+  padding: 10px;
+  border: 2px solid var(--accent);
+  width: 80%;
+  max-width: 200px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideIn {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+/* Modal Text Styling */
+.modal-content h3 {
+  color: var(--primary);
+  font-size: 1.0rem;
+  margin: 0;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="var(--logo-red)" stroke-width="20" d="M50 200 L200 50 L350 200 L200 350 Z" />
+                        <path fill="none" stroke="var(--logo-red)" stroke-width="20" d="M125 200 L200 125 L275 200 L200 275 Z" />
+                    </svg>
+                    LAUNCH<span>GRID</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeInLeft">
+                <h1>LAUNCHGRID – Where People Actually Build Stuff!</h1>
+                <h2>Connecting founders, investors, and startup talent in one dynamic space.</h2>
+                <a href="#waitlist" class="btn">Join Waitlist</a>
+            </div>
+        </div>
+        <div class="hero-image animate__animated animate__fadeInRight"></div>
+    </section>
+
+    <!-- About Section -->
+<section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>What is LAUNCHGRID?</h2>
+                <p>A revolutionary platform designed to empower the startup ecosystem</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>LAUNCHGRID is the ultimate hub for startup founders, investors, and talent to connect, collaborate, and grow together. We've reimagined networking for the modern startup ecosystem, creating a streamlined platform that eliminates traditional barriers.</p>
+                    <p>Our mission is to democratize access to resources, knowledge, and opportunities that are typically reserved for those with established connections. With LAUNCHGRID, anyone with a great idea can find the people, funding, and support they need to bring their vision to life.</p>
+                    <p>Whether you're a founder looking for your technical co-founder, an investor seeking the next unicorn, or a professional wanting to join an exciting startup, LAUNCHGRID is your launchpad to success.</p>
+                </div>
+                <div class="about-image">
+                    <img src="C:\LaunchGrid\Pictures\About.png"alt="LaunchGrid Platform">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Platform Features</h2>
+                <p>Discover the tools and resources that will supercharge your startup journey</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Smart Networking</h3>
+                    <p>Our AI-powered matching algorithm connects you with the right people based on your goals, industry, and stage. Expand your network with meaningful connections that can truly help your startup grow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Secure Messaging</h3>
+                    <p>Communicate directly with potential co-founders, investors, and talent through our encrypted messaging system. Schedule meetings, share documents, and build relationships all in one place.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Startup Profiles</h3>
+                    <p>Create a compelling profile for your startup to showcase your vision, traction, and team. Stand out to investors and potential team members with a professional online presence.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Talent Marketplace</h3>
+                    <p>Find the perfect team members or discover exciting roles at innovative startups. Our talent marketplace matches skills and culture fit to create lasting professional relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="waitlist">
+        <div class="container">
+            <h2>Be Among the First to Experience LAUNCHGRID</h2>
+            <p>Join our exclusive waitlist and get early access to the platform that will transform how startups connect, collaborate, and grow.</p>
+            <form class="waitlist-form" id="waitlistForm">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>LAUNCHGRID</h3>
+                    <p>Whether you're hunting for a co-founder who understands your hustle, scouting for the next big unicorn, or looking to join an innovative team, LAUNCHGRID is where genuine connections ignite success.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#waitlist">Join Waitlist</a></li>
+                    </ul>
+                </div>
+<div class="footer-column" id="legalSection">
+    <h3>Legal</h3>
+    <ul>
+        <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+        <li><a href="Terms of Service.html">Terms of Service</a></li>
+        <li><a href="Cookie Policy.html">Cookie Policy</a></li>
+    </ul>
+</div>
+
+<!-- Modal for Legal Section Pop-Up -->
+<div id="legalPopup" class="modal">
+  <div class="modal-content">
+    <h3>Will be updated soon!</h3>
+  </div>
+</div>
+
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@launchgrid.com">launchgrid@outlook.com</a></li>
+                        <li><a href="tel:+1234567890"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 LAUNCHGRID. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <h3>Thank you for joining the waitlist!</h3>
+        <p>We'll notify you as soon as LAUNCHGRID is ready for you.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navLinksItems = document.querySelectorAll('.nav-links li');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-links-active');
+            
+            // Animate Links
+            navLinksItems.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+            
+            // Hamburger Animation
+            hamburger.classList.toggle('toggle');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('nav-links-active')) {
+                    navLinks.classList.remove('nav-links-active');
+                    hamburger.classList.remove('toggle');
+                    
+                    navLinksItems.forEach(link => {
+                        link.style.animation = '';
+                    });
+                }
+            });
+        });
+
+        // Waitlist Form Submission
+        const waitlistForm = document.getElementById('waitlistForm');
+        const successMessage = document.getElementById('successMessage');
+
+        waitlistForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the data to Mailchimp or similar
+            // For demo purposes, we'll just show the success message
+            const email = this.querySelector('input[type="email"]').value;
+            console.log("Email submitted:", email);
+            
+            // Show success message
+            successMessage.style.display = 'block';
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Scroll Animation
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 100);
+            
+            // Reveal animations for sections
+            const revealElements = document.querySelectorAll('.feature-card, .about-text, .about-image');
+            revealElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        });
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add animation classes to elements in the viewport on load
+            const elementsToAnimate = document.querySelectorAll('.feature-card, .about-text, .about-image');
+            elementsToAnimate.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        });
+        
+        // Direct link to Google Form
+document.addEventListener('DOMContentLoaded', function() {
+    // Find the waitlist form
+    const waitlistForm = document.getElementById('waitlistForm');
+    
+    if (waitlistForm) {
+        // Create a direct link button
+        const linkButton = document.createElement('a');
+        linkButton.href = "https://forms.gle/34Q7Kc1QkuYdPcSTA";
+        linkButton.className = "btn";
+        linkButton.textContent = "Join Waitlist";
+        linkButton.target = "_blank"; // Opens in new tab
+        
+        // Replace the form with the button
+        waitlistForm.parentNode.replaceChild(linkButton, waitlistForm);
+    }
+});
+
+// Listen for clicks on the Legal section
+document.getElementById('legalSection').addEventListener('click', function(e) {
+    // Prevent default navigation for any links clicked within the legal section
+    e.preventDefault();
+    // Display the modal
+    var modal = document.getElementById('legalPopup');
+    modal.style.display = 'block';
+    
+    // Hide the modal after 3 seconds
+    setTimeout(function() {
+        modal.style.display = 'none';
+    }, 3000);
+});
+
+    </script>
+</body>
+</html>
